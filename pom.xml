@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.lr</groupId>
+    <artifactId>springboot-dubbo3</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot-dubbo3</name>
+    <description>springboot-dubbo3</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+<!--        <dubbo-boot.version>3.0.4</dubbo-boot.version>-->
+        <dubbo-boot.version>3.0.8</dubbo-boot.version>
+        <zkclient.version>4.2.0</zkclient.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- apache 官方 3.0 starter依赖 -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo-boot.version}</version>
+            </dependency>
+
+            <!-- zookeeper客户端  只需引入此依赖curator-framework curator-recipes 都有 -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-x-discovery</artifactId>
+                <version>${zkclient.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>dubbo-interface</module>
+        <module>provider</module>
+        <module>consumer</module>
+    </modules>
+
+</project>
