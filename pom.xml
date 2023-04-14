@@ -52,6 +52,7 @@
     <modules>
         <module>dubbo-interface</module>
         <module>provider</module>
+        <module>provider-buy</module>
         <module>consumer</module>
     </modules>
 
